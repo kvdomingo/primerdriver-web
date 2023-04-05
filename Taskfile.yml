@@ -15,15 +15,6 @@ tasks:
     cmds:
       - docker compose -p {{.NAME}} logs --follow {{.CLI_ARGS}}
 
-  test:
-    cmds:
-      - poetry run python -m unittest {{.CLI_ARGS}}
-
-  build:
-    cmds:
-      - poetry run pyinstaller --clean -F --name primerdriver setup.py
-      - docker run -v "$(pwd)":/build --rm --env NAME={{.NAME}} --name primerdriver --workdir /build kvdomingo/py-cli-builder:latest
-
   shutdown:
     cmds:
       - docker compose -p {{.NAME}} stop {{.CLI_ARGS}}

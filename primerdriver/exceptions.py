@@ -1,2 +1,0 @@
-class PrimerCheckError(ValueError):
-    pass

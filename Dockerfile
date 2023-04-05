@@ -16,7 +16,7 @@ RUN poetry install
 
 WORKDIR /primerdriver
 
-ENTRYPOINT ["poetry", "run", "flask", "run", "-h", "0.0.0.0", "-p", "5000", "--reloSomead"]
+ENTRYPOINT ["poetry", "run", "flask", "run", "-h", "0.0.0.0", "-p", "5000", "--reload"]
 
 FROM node:16-alpine as web_build
 
@@ -41,7 +41,6 @@ RUN poetry export -f requirements.txt | pip install --no-cache-dir -r /dev/stdin
 
 WORKDIR /primerdriver
 
-COPY ./primerdriver/ ./primerdriver/
 COPY ./primerx/ ./primerx/
 COPY ./*.py ./
 COPY ./*.sh ./

@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "primerdriver"
-version = "1.3.2"
+name = "primerdriver-web"
+version = "1.4.0"
 description = "Automated design of mutagenic PCR primers"
 authors = [
     "Kenneth V. Domingo <hello@kvdomingo.xyz>",
@@ -13,30 +13,22 @@ classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Framework :: Flask",
     "Intended Audience :: Science/Research",
-    "Typing :: Typed"
 ]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.11"
-biopython = "1.76"
-python-dotenv = "^0.21.0"
+python-dotenv = "^1.0.0"
 Flask = "^2.1.2"
 gunicorn = {extras = ["gthread"], version = "^20.1.0"}
 loguru = "^0.6.0"
-pandas = "^1.4.2"
-requests = "^2.27.1"
-semver = "^2.13.0"
-tabulate = "^0.8.9"
 whitenoise = "^6.1.0"
 Flask-Caching = "^1.10.1"
+primerdriver = "^1.4.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
 isort = "^5.12.0"
 flake8 = "^6.0.0"
-pyinstaller = "^5.1"
-Sphinx = "3.5.1"
-selenium = "^4.4.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
