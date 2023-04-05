@@ -26,14 +26,14 @@ files = [
 
 [[package]]
 name = "beautifulsoup4"
-version = "4.12.0"
+version = "4.12.1"
 description = "Screen-scraping library"
 category = "main"
 optional = false
 python-versions = ">=3.6.0"
 files = [
-    {file = "beautifulsoup4-4.12.0-py3-none-any.whl", hash = "sha256:2130a5ad7f513200fae61a17abb5e338ca980fa28c439c0571014bc0217e9591"},
-    {file = "beautifulsoup4-4.12.0.tar.gz", hash = "sha256:c5fceeaec29d09c84970e47c65f2f0efe57872f7cff494c9691a26ec0ff13234"},
+    {file = "beautifulsoup4-4.12.1-py3-none-any.whl", hash = "sha256:e44795bb4f156d94abb5fbc56efff871c1045bfef72e9efe77558db9f9616ac3"},
+    {file = "beautifulsoup4-4.12.1.tar.gz", hash = "sha256:c7bdbfb20a0dbe09518b96a809d93351b2e2bcb8046c0809466fa6632a10c257"},
 ]
 
 [package.dependencies]
@@ -672,14 +672,14 @@ test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.2.2)", "pytest-
 
 [[package]]
 name = "primerdriver"
-version = "1.4.0"
+version = "1.5.0"
 description = "Automated design of mutagenic PCR primers"
 category = "main"
 optional = false
 python-versions = ">=3.8.1,<3.11"
 files = [
-    {file = "primerdriver-1.4.0-py3-none-any.whl", hash = "sha256:192d1b397c177c93550dcb6a9c7ff0dcb3542ec5f16c02fe5b0039e29b9fffec"},
-    {file = "primerdriver-1.4.0.tar.gz", hash = "sha256:5f99a74376c329dd8756df55d0a3c88d9e06271b7ada690330502e77fbf16228"},
+    {file = "primerdriver-1.5.0-py3-none-any.whl", hash = "sha256:c9ea62ac1abd32493e725a2cad42ff0a696b376ef6512c69e7e05c9f4b0d4391"},
+    {file = "primerdriver-1.5.0.tar.gz", hash = "sha256:11858b6cdf52c5c0f3cbca1ab97077050d2a2b0395676fa6d83fceaf01872180"},
 ]
 
 [package.dependencies]
@@ -1123,21 +1123,6 @@ MarkupSafe = ">=2.1.1"
 watchdog = ["watchdog"]
 
 [[package]]
-name = "whitenoise"
-version = "6.4.0"
-description = "Radically simplified static file serving for WSGI applications"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "whitenoise-6.4.0-py3-none-any.whl", hash = "sha256:599dc6ca57e48929dfeffb2e8e187879bfe2aed0d49ca419577005b7f2cc930b"},
-    {file = "whitenoise-6.4.0.tar.gz", hash = "sha256:a02d6660ad161ff17e3042653c8e3f5ecbb2a2481a006bde125b9efb9a30113a"},
-]
-
-[package.extras]
-brotli = ["Brotli"]
-
-[[package]]
 name = "win32-setctime"
 version = "1.1.0"
 description = "A small Python utility to set file creation time on Windows"
@@ -1155,4 +1140,4 @@ dev = ["black (>=19.3b0)", "pytest (>=4.6.2)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.11"
-content-hash = "888df1c3f5bd6170b6bfb7519bf89e2a1b9c1d78d1d3616e9f0ea256f81965c4"
+content-hash = "164c1841bf91b5d504a672b1df7549867135cddd61a5c2580dde374c701a79ef"

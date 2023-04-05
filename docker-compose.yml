@@ -1,5 +1,3 @@
-version: "3.8"
-
 networks:
   gateway:
     external: true
@@ -15,19 +13,16 @@ services:
       - .:/primerdriver
 
   frontend:
-    build:
-      context: ./web/app
-      target: dev
-    image: kvdomingo/primerdriver-app:latest
+    image: node:16-alpine
     environment:
-      - HOST=0.0.0.0
-      - PORT=3000
       - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-      - TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling
-      - WDS_SOCKET_PORT=0
+    entrypoint:
+      - /bin/sh
+      - "-c"
+      - "yarn install && exec yarn dev --host 0.0.0.0 --port 3000"
+    working_dir: /web
     volumes:
-      - ./web:/web
+      - ./ui:/web
 
   proxy:
     image: bitnami/nginx:1.21.6
