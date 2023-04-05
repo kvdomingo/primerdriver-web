@@ -1,5 +1,5 @@
-import { MDBContainer as Container, MDBIcon as Icon, MDBTypography as Typography } from "mdbreact";
 import { Link } from "react-router-dom";
+import { MDBContainer as Container, MDBIcon as Icon, MDBTypography as Typography } from "mdbreact";
 import PropTypes from "prop-types";
 
 function Form(props) {

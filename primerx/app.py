@@ -4,11 +4,11 @@ from http import HTTPStatus
 
 from flask import Flask, Response, jsonify, request, send_from_directory
 from pandas import concat
-
 from primerdriver import __version__
 from primerdriver.checks import PrimerChecks
 from primerdriver.exceptions import PrimerCheckError
 from primerdriver.primer_design import PrimerDesign
+
 from primerx.cache import cache
 from primerx.config import BASE_DIR, PYTHON_ENV, SHORT_SHA
 from primerx.log import logger

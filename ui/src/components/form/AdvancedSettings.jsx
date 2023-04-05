@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   MDBCard as Card,
   MDBCardBody as CardBody,
@@ -6,7 +7,6 @@ import {
   MDBCollapse as Collapse,
   MDBRow as Row,
 } from "mdbreact";
-import { useState } from "react";
 import PropTypes from "prop-types";
 
 function AdvancedSettings(props) {

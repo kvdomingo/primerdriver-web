@@ -1,3 +1,5 @@
+import { Fragment, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   MDBIcon as Icon,
   MDBTable as Table,
@@ -5,8 +7,6 @@ import {
   MDBTableHead as TableHead,
   MDBTypography as Typography,
 } from "mdbreact";
-import { Fragment, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { usePrimerDriverContext } from "../../contexts/PrimerDriverContext";
 
 const styles = {

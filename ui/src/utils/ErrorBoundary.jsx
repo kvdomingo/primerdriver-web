@@ -1,5 +1,5 @@
-import { MDBTypography as Typography } from "mdbreact";
 import { Component } from "react";
+import { MDBTypography as Typography } from "mdbreact";
 
 class ErrorBoundary extends Component {
   state = {

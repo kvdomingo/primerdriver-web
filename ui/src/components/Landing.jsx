@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import { Image } from "cloudinary-react";
 import { MDBContainer as Container } from "mdbreact";
-import { useEffect, useState } from "react";
 import api from "../api";
 
 function Landing() {
