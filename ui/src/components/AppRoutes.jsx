@@ -18,7 +18,7 @@ const styles = {
   },
 };
 
-function Station() {
+function AppRoutes() {
   const [key, setKey] = useState(0);
 
   function handleReset() {
@@ -59,4 +59,4 @@ function Station() {
   );
 }
 
-export default Station;
+export default AppRoutes;

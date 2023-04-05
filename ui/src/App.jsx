@@ -1,7 +1,7 @@
 import { MDBCol as Col, MDBRow as Row } from "mdbreact";
 import "./App.css";
+import AppRoutes from "./components/AppRoutes.jsx";
 import Landing from "./components/Landing";
-import Station from "./components/Station";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Landing />
       </Col>
       <Col sm={9}>
-        <Station id="app" />
+        <AppRoutes id="app" />
       </Col>
     </Row>
   );

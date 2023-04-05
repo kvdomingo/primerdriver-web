@@ -6,7 +6,7 @@ services:
   backend:
     build:
       context: .
-      target: dev
+      dockerfile: Dockerfile.dev
     image: kvdomingo/primerdriver-api:latest
     env_file: .env
     volumes:
