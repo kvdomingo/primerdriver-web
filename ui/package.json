@@ -1,0 +1,30 @@
+{
+  "name": "primerdriver-web",
+  "version": "1.5.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.3.4",
+    "cloudinary-core": "^2.11.3",
+    "cloudinary-react": "^1.7.0",
+    "lodash-es": "^4.17.21",
+    "mdbreact": "^5.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-ga4": "^2.1.0",
+    "react-router-dom": "^6.10.0"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@types/node": "16.18.23",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "prettier": "^2.8.7",
+    "vite": "^4.2.0"
+  }
+}

@@ -4,17 +4,17 @@ from http import HTTPStatus
 
 from flask import Flask, Response, jsonify, request, send_from_directory
 from pandas import concat
-
 from primerdriver import __version__
 from primerdriver.checks import PrimerChecks
 from primerdriver.exceptions import PrimerCheckError
-from primerdriver.primer_design import PrimerDesign
+from primerdriver.primer_design import OperationMode, PrimerDesign
+
 from primerx.cache import cache
 from primerx.config import BASE_DIR, PYTHON_ENV, SHORT_SHA
 from primerx.log import logger
 from primerx.tasks import on_ready
 
-app = Flask(__name__, static_url_path="", static_folder=BASE_DIR / "web" / "app")
+app = Flask(__name__, static_url_path="", static_folder=BASE_DIR / "ui")
 cache.init_app(app)
 
 on_ready()
@@ -34,7 +34,7 @@ def api_version():
 def api_expression_systems():
     try:
         expression = json.loads(cache.get("expression_systems"))
-        return jsonify({"data": expression})
+        return jsonify({"data": sorted(list(expression.keys()))})
     except json.JSONDecodeError as e:
         logger.error(str(e))
         return Response(status=HTTPStatus.INTERNAL_SERVER_ERROR)
@@ -44,21 +44,21 @@ def api_expression_systems():
 def api():
     data = request.json
     checks = PrimerChecks(data["sequence"])
-    if data["mode"] == "PRO":
+    if data["mode"] == OperationMode.PROTEIN.value:
         try:
-            data["sequence"] = checks.check_valid_protein()
+            data["sequence"] = checks.is_valid_protein()
         except PrimerCheckError as e:
             logger.error(str(e))
             return Response(str(e), status=HTTPStatus.BAD_REQUEST)
     else:
         try:
-            data["sequence"] = checks.check_valid_base()
+            data["sequence"] = checks.is_valid_dna()
         except PrimerCheckError as e:
             logger.error(str(e))
             return Response(str(e), status=HTTPStatus.BAD_REQUEST)
     res = PrimerDesign(**data)
     res.main()
-    if data["mode"] != "CHAR":
+    if data["mode"] != OperationMode.CHARACTERIZATION.value:
         try:
             df = concat([*res.df]).T
             out = df.to_dict()
