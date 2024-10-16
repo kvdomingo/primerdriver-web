@@ -1,21 +1,21 @@
 version: '3'
 
 env:
-  NAME: primerdriver-dev
+  NAME: primerdriver
   SHORT_SHA:
-    sh: git show --format="%h" --no-patch
+    sh: git rev-parse --short HEAD
 
 tasks:
   default:
     cmds:
       - docker compose -p {{.NAME}} up -d --build --remove-orphans {{.CLI_ARGS}}
-      - task logs
 
   logs:
+    interactive: true
     cmds:
       - docker compose -p {{.NAME}} logs --follow {{.CLI_ARGS}}
 
-  shutdown:
+  stop:
     cmds:
       - docker compose -p {{.NAME}} stop {{.CLI_ARGS}}
 

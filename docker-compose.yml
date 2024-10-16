@@ -1,7 +1,3 @@
-networks:
-  gateway:
-    external: true
-
 services:
   backend:
     build:
@@ -11,32 +7,19 @@ services:
     env_file: .env
     volumes:
       - .:/primerdriver
+    ports:
+      - '5000:5000'
 
   frontend:
-    image: node:16-alpine
+    image: oven/bun:1.1-alpine
     environment:
-      - NODE_ENV=development
+      NODE_ENV: development
     entrypoint:
       - /bin/sh
       - "-c"
-      - "yarn install && exec yarn dev --host 0.0.0.0 --port 3000"
+      - "bun install && exec bun run dev"
     working_dir: /web
     volumes:
       - ./ui:/web
-
-  proxy:
-    image: bitnami/nginx:1.21.6
-    environment:
-      - NGINX_HTTP_PORT_NUMBER=8000
-    volumes:
-      - ./proxy/nginx.conf:/opt/bitnami/nginx/conf/server_blocks/primerdriver.conf:ro
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.primerdriver.rule=Host(`primerdriver.localhost`)"
-      - "traefik.http.routers.primerdriver.entrypoints=http"
-      - "traefik.docker.network=gateway"
-      - "traefik.http.services.primerdriver.loadbalancer.server.port=8000"
-    restart: unless-stopped
-    networks:
-      - default
-      - gateway
+    ports:
+      - '3000:3000'

@@ -1,10 +1,14 @@
 FROM python:3.10-bullseye
 
+ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
-ENV POETRY_VERSION 1.3.2
+ENV POETRY_VERSION 1.8.3
 
-RUN pip install poetry==$POETRY_VERSION && poetry config virtualenvs.create false
+SHELL [ "/bin/bash", "-euxo", "pipefail", "-c" ]
+
+RUN pip install poetry==$POETRY_VERSION && \
+    poetry config virtualenvs.create false
 
 WORKDIR /tmp
 
@@ -14,4 +18,4 @@ RUN poetry install
 
 WORKDIR /primerdriver
 
-ENTRYPOINT ["poetry", "run", "flask", "run", "-h", "0.0.0.0", "-p", "5000", "--reload"]
+ENTRYPOINT [ "./docker-entrypoint.dev.sh" ]
