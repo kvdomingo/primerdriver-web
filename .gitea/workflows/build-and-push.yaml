@@ -36,6 +36,7 @@ jobs:
           tags: |
             git.lab.kvd.studio/${{ gitea.repository }}:${{ gitea.sha }}
             git.lab.kvd.studio/${{ gitea.repository }}:latest
+          file: Dockerfile.prod
 
       - name: Notify build success
         uses: discord-actions/message@v2
