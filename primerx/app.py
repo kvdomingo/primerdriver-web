@@ -21,6 +21,11 @@ cache.init_app(app)
 on_ready()
 
 
+@app.route("/api/health")
+def health():
+    return {"status": "ok"}
+
+
 @app.route("/api/version")
 def api_version():
     return jsonify(
