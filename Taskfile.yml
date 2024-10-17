@@ -7,26 +7,28 @@ env:
 
 tasks:
   default:
-    cmds:
-      - docker compose -p {{.NAME}} up -d --build --remove-orphans {{.CLI_ARGS}}
+    cmd: docker compose -p {{.NAME}} up -d --build --remove-orphans {{.CLI_ARGS}}
 
   logs:
     interactive: true
-    cmds:
-      - docker compose -p {{.NAME}} logs --follow {{.CLI_ARGS}}
+    cmd: docker compose -p {{.NAME}} logs --follow {{.CLI_ARGS}}
 
   stop:
-    cmds:
-      - docker compose -p {{.NAME}} stop {{.CLI_ARGS}}
+    cmd: docker compose -p {{.NAME}} stop {{.CLI_ARGS}}
 
   restart:
-    cmds:
-      - docker compose -p {{.NAME}} restart {{.CLI_ARGS}}
+    cmd: docker compose -p {{.NAME}} restart {{.CLI_ARGS}}
 
   reload-proxy:
-    cmds:
-      - docker compose -p {{.NAME}} exec -- proxy nginx -s reload
+    cmd: docker compose -p {{.NAME}} exec -- proxy nginx -s reload
 
   clean:
-    cmds:
-      - docker compose -p {{.NAME}} down -v --remove-orphans
+    cmd: docker compose -p {{.NAME}} down -v --remove-orphans
+
+  build-cr:
+    cmd: >
+      docker build 
+      -t kvdomingo/primerdriver-web:{{.SHORT_SHA}}
+      -t kvdomingo/primerdriver-web:latest
+      --build-arg SHORT_SHA={{.SHORT_SHA}}
+      -f Dockerfile.prod .
