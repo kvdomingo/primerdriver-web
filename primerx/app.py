@@ -12,6 +12,7 @@ from primerdriver.primer_design import OperationMode, PrimerDesign
 from primerx.cache import cache
 from primerx.config import BASE_DIR, PYTHON_ENV, SHORT_SHA
 from primerx.log import logger
+from primerx.models import AdvancedSettings
 from primerx.tasks import on_ready
 
 app = Flask(__name__, static_url_path="", static_folder=BASE_DIR / "ui")
@@ -43,6 +44,7 @@ def api_expression_systems():
 @app.route("/api", methods=["POST"])
 def api():
     data = request.json
+    data["settings"] = AdvancedSettings(**data["settings"])
     checks = PrimerChecks(data["sequence"])
     if data["mode"] == OperationMode.PROTEIN.value:
         try:

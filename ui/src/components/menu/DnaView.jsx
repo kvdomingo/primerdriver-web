@@ -107,7 +107,7 @@ function DnaView(props) {
       position,
       replacement,
       mutation_type: mutationType,
-      advSettings: {
+      settings: {
         Tm_range_min: tmRange[0],
         Tm_range_max: tmRange[1],
         gc_range_min: gcRange[0],

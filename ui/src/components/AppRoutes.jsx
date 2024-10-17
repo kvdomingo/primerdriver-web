@@ -2,7 +2,6 @@ import { Suspense, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { MDBContainer as Container, MDBJumbotron as Jumbotron } from "mdbreact";
 import ErrorBoundary from "../utils/ErrorBoundary";
-import GAUtil from "../utils/GAUtil";
 import Characterize from "./menu/Characterize";
 import Dna from "./menu/DnaView";
 import Menu from "./menu/Menu";
@@ -36,7 +35,6 @@ function AppRoutes() {
         style={styles.appContainer}
       >
         <Router>
-          <GAUtil />
           <Suspense fallback={<Loading />}>
             <Routes>
               <Route exact path="/" element={<Menu />} />
